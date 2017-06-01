@@ -30,6 +30,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StatefulWebApiProd\StatefulWebApiProd.csproj" />
     <ProjectReference Include="..\StatelessWebApiProd\StatelessWebApiProd.csproj" />
     <ProjectReference Include="..\StatelessWebApi\StatelessWebApi.csproj" />
   </ItemGroup>

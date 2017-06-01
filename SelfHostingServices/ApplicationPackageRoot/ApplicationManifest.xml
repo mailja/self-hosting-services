@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="SelfHostingServicesType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
+    <Parameter Name="StatefulWebApiProd_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="StatefulWebApiProd_PartitionCount" DefaultValue="1" />
+    <Parameter Name="StatefulWebApiProd_TargetReplicaSetSize" DefaultValue="2" />
     <Parameter Name="StatelessWebApiProd_InstanceCount" DefaultValue="-1" />
     <Parameter Name="StatelessWebApi_InstanceCount" DefaultValue="-1" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="StatefulWebApiProdPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="StatelessWebApiProdPkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -21,6 +28,11 @@
          ServiceFabric PowerShell module.
          
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="StatefulWebApiProd">
+      <StatefulService ServiceTypeName="StatefulWebApiProdType" TargetReplicaSetSize="[StatefulWebApiProd_TargetReplicaSetSize]" MinReplicaSetSize="[StatefulWebApiProd_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[StatefulWebApiProd_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
     <Service Name="StatelessWebApiProd">
       <StatelessService ServiceTypeName="StatelessWebApiProdType" InstanceCount="[StatelessWebApiProd_InstanceCount]">
         <SingletonPartition />

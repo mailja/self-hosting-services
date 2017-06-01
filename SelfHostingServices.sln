@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatelessWebApi", "Stateles
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatelessWebApiProd", "StatelessWebApiProd\StatelessWebApiProd.csproj", "{FEE84EBB-F517-41EF-8CF7-7072EEECDCF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatefulWebApiProd", "StatefulWebApiProd\StatefulWebApiProd.csproj", "{F0B1D0D1-38B7-4076-89FE-E6E5D5AEFEDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,6 +31,10 @@ Global
 		{FEE84EBB-F517-41EF-8CF7-7072EEECDCF6}.Debug|x64.Build.0 = Debug|x64
 		{FEE84EBB-F517-41EF-8CF7-7072EEECDCF6}.Release|x64.ActiveCfg = Release|x64
 		{FEE84EBB-F517-41EF-8CF7-7072EEECDCF6}.Release|x64.Build.0 = Release|x64
+		{F0B1D0D1-38B7-4076-89FE-E6E5D5AEFEDE}.Debug|x64.ActiveCfg = Debug|x64
+		{F0B1D0D1-38B7-4076-89FE-E6E5D5AEFEDE}.Debug|x64.Build.0 = Debug|x64
+		{F0B1D0D1-38B7-4076-89FE-E6E5D5AEFEDE}.Release|x64.ActiveCfg = Release|x64
+		{F0B1D0D1-38B7-4076-89FE-E6E5D5AEFEDE}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
